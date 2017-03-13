@@ -84,16 +84,21 @@
 
     <div class="navbar navbar-default navbar-fixed-bottom">
         <div class="container">
+            @if(config('halfpetal.footer.show_copyright'))
             <p class="navbar-text pull-left">
                 Copyright © 2015 - {{ date('Y') }} <a href="https://halfpetal.com" target="_blank">Halfpetal</a>.<br>
                 LuckPerms Web Manager is licensed under a <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> license.
             </p>
+            @endif
             
             <p class="navbar-text pull-right">
+                @if(config('halfpetal.footer.show_github'))
                 <a href="https://github.com/halfpetal/LuckPermsWebManager" target="_blank" title="View the GitHub Project" class="navbar-btn btn-primary btn"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
+                @endif
+                @if(config('halfpetal.footer.show_social'))
                 <a href="https://twitter.com/halfpetal/" target="_blank" title="Halfpetal on Twitter" class="navbar-btn btn-primary btn"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
                 <a href="https://facebook.com/halfpetal/" target="_blank" title="Halfpetal on Facebook" class="navbar-btn btn-primary btn"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
-
+                @endif
             </p>
         </div>
     </div>
