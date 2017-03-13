@@ -18,10 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group([
-    'prefix' => 'admin',
-    'as' => 'admin::',
-    'namespace' => 'Admin'
-], function() {
+    'prefix'    => 'admin',
+    'as'        => 'admin::',
+    'namespace' => 'Admin',
+], function () {
     Route::get('/', 'AdminController@index')->name('home');
 
     Route::get('actions', 'AdminController@getActions')->name('actions');
