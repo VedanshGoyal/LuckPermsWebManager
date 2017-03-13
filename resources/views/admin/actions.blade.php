@@ -23,7 +23,7 @@
                             <tbody>
                                 @foreach($actions as $action)
                                 <tr>
-                                    <td>{{ $action->time }}</td>
+                                    <td>{{ Carbon::createFromTimestamp($action->time)->diffForHumans() }}</td>
                                     <td>{{ $action->actor_name }}</td>
                                     <td>{{ $action->type }}</td>
                                     <td>{{ $action->acted_uuid }}</td>
