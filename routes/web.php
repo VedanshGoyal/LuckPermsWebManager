@@ -12,9 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('guest.home');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin::',
+    'namespace' => 'Admin'
+], function() {
+    Route::get('/', 'AdminController@index')->name('home');
+
+    Route::get('actions', 'AdminController@getActions')->name('actions');
+
+    /*
+        /actions
+        /groups
+        /group/name
+        /users
+        /user/name
+    */
+});
+
+//Route::get('/home', 'HomeController@index');
