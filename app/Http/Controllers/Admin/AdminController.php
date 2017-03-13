@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\LuckPerms\Action;
 
 class AdminController extends Controller
 {
@@ -25,5 +26,12 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.home');
+    }
+
+    public function getActions()
+    {
+        return view('admin.actions', [
+            'actions' => Action::orderBy('id', 'desc')->paginate()
+        ]);
     }
 }
