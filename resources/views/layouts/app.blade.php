@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/themes/yeti.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -81,7 +82,24 @@
         @yield('content')
     </div>
 
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text pull-left">
+                Copyright © 2015 - {{ date('Y') }} <a href="https://halfpetal.com" target="_blank">Halfpetal</a>.<br>
+                LuckPerms Web Manager is licensed under a <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> license.
+            </p>
+            
+            <p class="navbar-text pull-right">
+                <a href="https://github.com/halfpetal/LuckPermsWebManager" target="_blank" title="View the GitHub Project" class="navbar-btn btn-primary btn"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/halfpetal/" target="_blank" title="Halfpetal on Twitter" class="navbar-btn btn-primary btn"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+                <a href="https://facebook.com/halfpetal/" target="_blank" title="Halfpetal on Facebook" class="navbar-btn btn-primary btn"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+
+            </p>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://use.fontawesome.com/63e3c344c7.js"></script>
 </body>
 </html>
