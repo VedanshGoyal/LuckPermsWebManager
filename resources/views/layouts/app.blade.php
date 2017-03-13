@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('page-head')
     <link href="{{ asset('css/themes/yeti.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
@@ -22,7 +23,7 @@
     </script>
 </head>
 <body>
-    <div id="app">
+    <div id="app" style="margin-bottom:50px;">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -86,7 +87,7 @@
         <div class="container">
             @if(config('halfpetal.footer.show_copyright'))
             <p class="navbar-text pull-left">
-                Copyright © 2015 - {{ date('Y') }} <a href="https://halfpetal.com" target="_blank">Halfpetal</a>.<br>
+                Copyright &copy; {{ date('Y') }} <a href="https://halfpetal.com" target="_blank">Halfpetal</a>.<br>
                 LuckPerms Web Manager is licensed under a <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> license.
             </p>
             @endif
@@ -106,5 +107,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://use.fontawesome.com/63e3c344c7.js"></script>
+
+    @yield('page-footer')
 </body>
 </html>
