@@ -53,6 +53,20 @@ return [
             'engine'    => null,
         ],
 
+        'luckperms' => [
+            'driver'    => 'mysql',
+            'host'      => env('LP_HOST', '127.0.0.1'),
+            'port'      => env('LP_PORT', '3306'),
+            'database'  => env('LP_DATABASE', 'forge'),
+            'username'  => env('LP_USERNAME', 'forge'),
+            'password'  => env('LP_PASSWORD', ''),
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix'    => env('LP_PREFIX', 'luckperms_'),
+            'strict'    => true,
+            'engine'    => null,
+        ],
+
         'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => env('DB_HOST', '127.0.0.1'),
