@@ -1,3 +1,5 @@
+window.Chart = require('chart.js');
+window.swal = window.sweetAlert = require('sweetalert');
 
 window._ = require('lodash');
 
