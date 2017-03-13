@@ -31,7 +31,7 @@ class AdminController extends Controller
     public function getActions()
     {
         return view('admin.actions', [
-            'actions' => Action::orderBy('id', 'desc')->paginate()
+            'actions' => Action::orderBy('id', 'desc')->paginate(),
         ]);
     }
 }
