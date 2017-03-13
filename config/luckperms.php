@@ -10,13 +10,13 @@ return [
 
     'groups' => [
         'show_permissions' => true,
-        'show_members' => true,
+        'show_members'     => true,
     ],
 
     'users' => [
-        'show_users' => true,
+        'show_users'            => true,
         'show_user_permissions' => true,
-        'show_groups' => true,
-        'show_prefix' => true,
-    ]
-]; 
+        'show_groups'           => true,
+        'show_prefix'           => true,
+    ],
+];
