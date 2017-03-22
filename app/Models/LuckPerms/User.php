@@ -4,5 +4,5 @@ namespace App\Models\LuckPerms;
 
 class Action extends Model
 {
-    protected $table = 'actions';
+    protected $table = 'players';
 }

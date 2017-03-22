@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\LuckPerms\Action;
+use App\Models\LuckPerms\Group;
+use App\Models\LuckPerms\User;
 
 class AdminController extends Controller
 {
@@ -32,6 +34,20 @@ class AdminController extends Controller
     {
         return view('admin.actions', [
             'actions' => Action::orderBy('id', 'desc')->paginate(),
+        ]);
+    }
+
+    public function getUsers()
+    {
+        return view('admin.users', [
+            'users' => User::paginate(),
+        ]);
+    }
+
+    public function getGroups()
+    {
+        return view('admin.groups', [
+            'groups' => Group::paginate(),
         ]);
     }
 }

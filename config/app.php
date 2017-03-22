@@ -228,7 +228,13 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
-
+        
+        /* LuckPerms Aliases */
+        'Action'       => App\Models\LuckPerms\Action::class,
+        'Group'        => App\Models\LuckPerms\Group::class,
+        'GroupPermission' => App\Models\LuckPerms\GroupPermission::class,
+        'User'         => App\Models\LuckPerms\User::class,
+        'UserPermission' => App\Models\LuckPerms\UserPermission::class,
     ],
 
 ];

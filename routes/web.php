@@ -22,14 +22,41 @@ Route::group([
     'as'        => 'admin::',
     'namespace' => 'Admin',
 ], function () {
-    Route::get('/', 'AdminController@index')->name('home');
+    Route::get('/', 'AdminController@index')->name('getHome');
 
-    Route::get('actions', 'AdminController@getActions')->name('actions');
+    Route::get('actions', 'AdminController@getActions')->name('getActions');
 
+    Route::get('groups', 'AdminController@getGroups')->name('getGroups');
+
+    Route::get('users', 'AdminController@getUsers')->name('getUsers');
+
+    Route::group([
+        'prefix' => 'group/{name}',
+        'as' => 'group::',
+    ], function($name) {
+        Route::get('/', function($name) {
+            return $name;
+        })->name('getGroup');
+
+        Route::group([
+            'prefix' => 'permissions',
+            'as' => 'permissions::',
+        ], function() {
+            Route::get('/', 'GroupController@getPermissions')->name('getPermissions');
+            Route::get('add', 'GroupController@getAdd')->name('getAdd');
+            Route::post('add', 'GroupController@postAdd')->name('postAdd');
+            Route::get('edit', 'GroupController@getEdit')->name('getEdit');
+            Route::patch('edit', 'GroupController@makeEdit')->name('makeEdit');
+            Route::delete('delete', 'GroupController@deletePermission')->name('deletePermission');
+        });
+    });
+    
+    
     /*
         /actions
         /groups
-        /group/name
+        /group/%name/permisisons
+        /group/
         /users
         /user/name
     */
