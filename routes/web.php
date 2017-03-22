@@ -32,16 +32,16 @@ Route::group([
 
     Route::group([
         'prefix' => 'group/{name}',
-        'as' => 'group::',
-    ], function($name) {
-        Route::get('/', function($name) {
+        'as'     => 'group::',
+    ], function ($name) {
+        Route::get('/', function ($name) {
             return $name;
         })->name('getGroup');
 
         Route::group([
             'prefix' => 'permissions',
-            'as' => 'permissions::',
-        ], function() {
+            'as'     => 'permissions::',
+        ], function () {
             Route::get('/', 'GroupController@getPermissions')->name('getPermissions');
             Route::get('add', 'GroupController@getAdd')->name('getAdd');
             Route::post('add', 'GroupController@postAdd')->name('postAdd');
@@ -50,8 +50,7 @@ Route::group([
             Route::delete('delete', 'GroupController@deletePermission')->name('deletePermission');
         });
     });
-    
-    
+
     /*
         /actions
         /groups

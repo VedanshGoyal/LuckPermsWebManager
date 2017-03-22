@@ -2,7 +2,7 @@
 
 namespace App\Models\LuckPerms;
 
-class Action extends Model
+class User extends Model
 {
     protected $table = 'players';
 }

@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\LuckPerms\Action;
 use App\Models\LuckPerms\Group;
 use App\Models\LuckPerms\GroupPermission;
-use App\Models\LuckPerms\User;
 
 class GroupController extends Controller
 {
@@ -30,26 +28,21 @@ class GroupController extends Controller
 
     public function getAdd($name)
     {
-
     }
 
     public function postAdd($name)
     {
-
     }
 
     public function getEdit($name)
     {
-
     }
 
     public function makeEdit($name)
     {
-
     }
 
-    public function deletePermission ($name)
+    public function deletePermission($name)
     {
-
     }
 }
