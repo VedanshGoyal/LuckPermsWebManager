@@ -21,7 +21,7 @@
                                         <a href="{{ route('admin::group::permissions::getPermissions', ['name' => $group->name]) }}" class="btn btn-primary btn-xs"><i class="fa fa-plus" aria-hidden="true"></i> Perms</a> 
                                     </div>
                                     <div class="btn-group" role="group">
-                                        <a href="{{ route('admin::group::permissions::getPermissions', ['name' => $group->name]) }}" class="btn btn-primary btn-xs"><i class="fa fa-info" aria-hidden="true"></i> Meta</a> 
+                                        <a href="{{ route('admin::group::permissions::getPermissions', ['name' => $group->name]) }}" class="btn btn-primary btn-xs" disabled="disabled"><i class="fa fa-info" aria-hidden="true"></i> Meta</a> 
                                     </div>
                                     <div class="btn-group" role="group">
                                         <a href="{{ route('admin::group::permissions::getPermissions', ['name' => $group->name]) }}" class="btn btn-danger btn-xs" disabled="disabled"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a> 

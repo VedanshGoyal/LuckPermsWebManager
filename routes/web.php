@@ -28,7 +28,12 @@ Route::group([
 
     Route::get('groups', 'AdminController@getGroups')->name('getGroups');
 
+    /*
+
+    User manager released later
     Route::get('users', 'AdminController@getUsers')->name('getUsers');
+    
+    */
 
     Route::group([
         'prefix' => 'group/{name}',
@@ -43,22 +48,10 @@ Route::group([
             'as'     => 'permissions::',
         ], function () {
             Route::get('/', 'GroupController@getPermissions')->name('getPermissions');
-            Route::get('add', 'GroupController@getAdd')->name('getAdd');
             Route::post('add', 'GroupController@postAdd')->name('postAdd');
             Route::get('edit', 'GroupController@getEdit')->name('getEdit');
             Route::patch('edit', 'GroupController@makeEdit')->name('makeEdit');
             Route::delete('delete', 'GroupController@deletePermission')->name('deletePermission');
         });
     });
-
-    /*
-        /actions
-        /groups
-        /group/%name/permisisons
-        /group/
-        /users
-        /user/name
-    */
 });
-
-//Route::get('/home', 'HomeController@index');

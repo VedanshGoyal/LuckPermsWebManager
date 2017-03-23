@@ -3,7 +3,52 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Add Permission</div>
+
+                <div class="panel-body">
+                    <form role="form" method="POST" action="{{ route('admin::group::permissions::postAdd', ['name' => $groupName]) }}">
+                        {{ method_field('POST') }}
+                        {{ csrf_field() }}
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="permissionInput">Permission</label>
+                                    <input type="text" class="form-control" id="permissionInput" name="permissionInput" placeholder="permission.node" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="permissionValue">Permission Value</label>
+                                    <select class="form-control" id="permissionValue" name="permissionValue" required>
+                                        <option value="true">True/Allow/Give</option>
+                                        <option value="false">False/Reject/Negate</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="serverInput">Server</label>
+                                    <input type="text" class="form-control" id="serverInput" name="serverInput" placeholder="server" value="global" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="worldInput">World</label>
+                                    <input type="text" class="form-control" id="worldInput" name="worldInput" placeholder="server" value="global" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-sm">Add Permission</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">Group Permissions</div>
 
