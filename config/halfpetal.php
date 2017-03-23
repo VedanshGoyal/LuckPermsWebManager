@@ -3,14 +3,14 @@
 return [
     'luckperms' => [
         'public_info' => env('LPWM_PUBLIC_INFO', true),
-        'info' => [
-            'action_log' => false,
-            'groups' => true,
-            'group_permissions' => true,
-            'group_meta' => true,
+        'info'        => [
+            'action_log'         => false,
+            'groups'             => true,
+            'group_permissions'  => true,
+            'group_meta'         => true,
             'blacklisted_groups' => ['administrator'],
-            'user_permissions' => true,
-            'blacklisted_users' => ['notch'],
+            'user_permissions'   => true,
+            'blacklisted_users'  => ['notch'],
         ],
     ],
 

@@ -12,8 +12,8 @@ class GroupPermission extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'permission', 'value', 
-        'server', 'world', 'expiry', 
+        'name', 'permission', 'value',
+        'server', 'world', 'expiry',
         'contexts',
     ];
 }

@@ -32,7 +32,7 @@ Route::group([
 
     User manager released later
     Route::get('users', 'AdminController@getUsers')->name('getUsers');
-    
+
     */
 
     Route::group([

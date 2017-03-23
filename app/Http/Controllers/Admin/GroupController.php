@@ -36,19 +36,19 @@ class GroupController extends Controller
     public function postAdd($name, Request $request)
     {
         $permission = new GroupPermission([
-            'name' => $name,
+            'name'       => $name,
             'permission' => $request->permissionInput,
-            'value' => ($request->permissionValue == 'true') ? true : false,
-            'server' => $request->serverInput,
-            'world' => $request->worldInput,
-            'expiry' => 0,
-            'contexts' => '{}',
+            'value'      => ($request->permissionValue == 'true') ? true : false,
+            'server'     => $request->serverInput,
+            'world'      => $request->worldInput,
+            'expiry'     => 0,
+            'contexts'   => '{}',
         ]);
 
         $permission->save();
 
-        Action::log($name, 'permisison set ' . $permission->permission . ' ' . (($request->permissionValue == 'true') ? 'true' : 'false') . ' '. $permission->server . ' ' . $permission->world);
-        
+        Action::log($name, 'permisison set '.$permission->permission.' '.(($request->permissionValue == 'true') ? 'true' : 'false').' '.$permission->server.' '.$permission->world);
+
         return redirect()->back();
     }
 
