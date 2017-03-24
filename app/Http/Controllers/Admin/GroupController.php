@@ -23,7 +23,7 @@ class GroupController extends Controller
 
     public function getPermissions($name)
     {
-        return view('admin.group.permissions.index', [
+        return view('admin.group.permissions', [
             'groupName'   => $name,
             'permissions' => GroupPermission::where('name', $name)->paginate(),
         ]);
