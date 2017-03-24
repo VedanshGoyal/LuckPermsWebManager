@@ -50,7 +50,7 @@ class GroupController extends Controller
 
     public function makeEdit($name, Request $request)
     {
-        if(!$request->has('id') || !$request->has('newPermission')) {
+        if (!$request->has('id') || !$request->has('newPermission')) {
             abort(404);
         }
 
