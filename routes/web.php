@@ -48,10 +48,9 @@ Route::group([
             'as'     => 'permissions::',
         ], function () {
             Route::get('/', 'GroupController@getPermissions')->name('getPermissions');
-            Route::post('add', 'GroupController@postAdd')->name('postAdd');
-            Route::get('edit', 'GroupController@getEdit')->name('getEdit');
-            Route::patch('edit', 'GroupController@makeEdit')->name('makeEdit');
-            Route::delete('delete', 'GroupController@deletePermission')->name('deletePermission');
+            Route::post('add', 'GroupController@postAdd')->name('add');
+            Route::post('edit', 'GroupController@makeEdit')->name('edit');
+            Route::delete('delete', 'GroupController@deletePermission')->name('delete');
         });
     });
 });

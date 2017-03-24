@@ -29,10 +29,6 @@ class GroupController extends Controller
         ]);
     }
 
-    public function getAdd($name)
-    {
-    }
-
     public function postAdd($name, Request $request)
     {
         $permission = new GroupPermission([
@@ -52,12 +48,15 @@ class GroupController extends Controller
         return redirect()->back();
     }
 
-    public function getEdit($name)
+    public function makeEdit($name, Request $request)
     {
-    }
+        if(!$request->has('id') || !$request->has('newPermission')) {
+            abort(404);
+        }
 
-    public function makeEdit($name)
-    {
+        $permission = GroupPermission::findOrFail($request->id);
+        $permission->permission = $request->newPermission;
+        $permission->save();
     }
 
     public function deletePermission($name)

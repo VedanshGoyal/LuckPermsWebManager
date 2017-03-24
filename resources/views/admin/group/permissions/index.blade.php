@@ -8,7 +8,7 @@
                 <div class="panel-heading">Add Permission</div>
 
                 <div class="panel-body">
-                    <form role="form" method="POST" action="{{ route('admin::group::permissions::postAdd', ['name' => $groupName]) }}">
+                    <form role="form" method="POST" action="{{ route('admin::group::permissions::add', ['name' => $groupName]) }}">
                         {{ method_field('POST') }}
                         {{ csrf_field() }}
                         <div class="row">
@@ -57,6 +57,7 @@
                         <table class="table" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Permission</th>
                                     <th>Allowed</th>
                                     <th>Server</th>
@@ -66,6 +67,9 @@
                             <tbody>
                                 @foreach($permissions as $permission)
                                 <tr>
+                                    <td>
+                                        <a type="button" class="btn btn-sm btn-primary" onClick="editPermission({{ $permission->id }})"><i class="fa fa-pencil"></i></a>
+                                    </td>
                                     <td>{{ $permission->permission }}</td>
                                     <td>{{ $permission->value ? 'True' : 'False' }}</td>
                                     <td>{{ $permission->server }}</td>
@@ -74,8 +78,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        
-                        
 
                         {{ $permissions->links() }}
                     @else
@@ -86,4 +88,39 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('page-footer')
+<script>
+
+function editPermission(permissionId) {
+    swal({
+        title: "Editing Permission (Id " + permissionId + ")",
+        text: "What's the new permission?",
+        type: "input",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        animation: "slide-from-top",
+        inputPlaceholder: "my.permission.*"
+    }, function(inputValue){
+        if (inputValue === false) {
+            return false;
+        }
+
+        if (inputValue === "") {
+            swal.showInputError("You need to input a new permission!");
+            return false;
+        }
+
+        $.post("{{ route('admin::group::permissions::edit', ['name' => $groupName]) }}", { id: permissionId, newPermission: inputValue, _token: '{{ csrf_token() }}'})
+         .done(function() {
+            location.reload();
+         })
+         .fail(function() {
+            swal("Oops...", "The change was not made. Sorry about that!", "error");
+         })
+    });
+}
+
+</script>
 @endsection
