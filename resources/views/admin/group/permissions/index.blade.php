@@ -69,6 +69,7 @@
                                 <tr>
                                     <td>
                                         <a type="button" class="btn btn-sm btn-primary" onClick="editPermission({{ $permission->id }})"><i class="fa fa-pencil"></i></a>
+                                        <a type="button" class="btn btn-sm btn-danger" onClick="deletePermission({{ $permission->id }})"><i class="fa fa-trash"></i></a>
                                     </td>
                                     <td>{{ $permission->permission }}</td>
                                     <td>{{ $permission->value ? 'True' : 'False' }}</td>
@@ -113,12 +114,39 @@ function editPermission(permissionId) {
         }
 
         $.post("{{ route('admin::group::permissions::edit', ['name' => $groupName]) }}", { id: permissionId, newPermission: inputValue, _token: '{{ csrf_token() }}'})
-         .done(function() {
-            location.reload();
-         })
-         .fail(function() {
-            swal("Oops...", "The change was not made. Sorry about that!", "error");
-         })
+            .done(function() {
+                location.reload();
+            })
+            .fail(function() {
+                swal("Oops...", "The change was not made. Sorry about that!", "error");
+            });
+    });
+}
+
+function deletePermission(permissionId) {
+    swal({
+        title: "Are you sure?",
+        text: "You will not be able to recover the permission once you delete it!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "Wait a second!",
+        closeOnConfirm: false,
+        closeOnCancel: false
+    },
+    function(isConfirm){
+        if (isConfirm) {
+             $.post("{{ route('admin::group::permissions::delete', ['name' => $groupName]) }}", { id: permissionId, _token: '{{ csrf_token() }}'})
+                .done(function() {
+                    location.reload();
+                })
+                .fail(function() {
+                    swal("Oops...", "The permission was not removed. Sorry about that!", "error");
+                });
+        } else {
+            swal("Cancelled", "The permission will not be removed.", "error");
+        }
     });
 }
 

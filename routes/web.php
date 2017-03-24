@@ -50,7 +50,7 @@ Route::group([
             Route::get('/', 'GroupController@getPermissions')->name('getPermissions');
             Route::post('add', 'GroupController@postAdd')->name('add');
             Route::post('edit', 'GroupController@makeEdit')->name('edit');
-            Route::delete('delete', 'GroupController@deletePermission')->name('delete');
+            Route::post('delete', 'GroupController@deletePermission')->name('delete');
         });
     });
 });

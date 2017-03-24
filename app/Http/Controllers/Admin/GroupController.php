@@ -55,11 +55,20 @@ class GroupController extends Controller
         }
 
         $permission = GroupPermission::findOrFail($request->id);
+        Action::log($name, 'permisison unset '.$permission->permission.' '.$permission->server.' '.$permission->world);
         $permission->permission = $request->newPermission;
         $permission->save();
+        Action::log($name, 'permisison set '.$permission->permission.' '.(($permission->value) ? 'true' : 'false').' '.$permission->server.' '.$permission->world);
     }
 
-    public function deletePermission($name)
+    public function deletePermission($name, Request $request)
     {
+        if (!$request->has('id')) {
+            abort(404);
+        }
+
+        $permission = GroupPermission::findOrFail($request->id);
+        Action::log($name, 'permisison unset '.$permission->permission.' '.$permission->server.' '.$permission->world);
+        $permission->delete();
     }
 }
